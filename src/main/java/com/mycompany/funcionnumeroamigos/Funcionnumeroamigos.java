@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Daniel
+ * @author Daniel Jerez Mayorga
  */
 public class Funcionnumeroamigos {
 
