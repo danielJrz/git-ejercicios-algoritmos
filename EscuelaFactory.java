@@ -8,8 +8,8 @@ package com.mycompany.alumnocursoinscripcionabstractfactory;
  *
  * @author Daniel
  */
-public interface Alumno {
-    double calcularPromedio(double[] notas);
-    int calcularAsistencia(int totalClases, int clasesAsistidas);
-    String calcularRendimientoGeneral(double promedio);
+public interface EscuelaFactory {
+    Alumno crearAlumno();
+    Curso crearCurso();
+    Inscripcion crearInscripcion();
 }
