@@ -1,0 +1,47 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.agendamientocitas;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author Daniel
+ */
+public class Agendamientocitas {
+
+    public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+        // Crear un paciente
+        System.out.print("Ingrese el nombre del paciente: ");
+        String nombre = scanner.nextLine();
+
+        System.out.print("Ingrese el ID del paciente: ");
+        String id = scanner.nextLine();
+
+        Paciente paciente = new Paciente(nombre, id);
+
+        // Mostrar días disponibles para agendar
+        Calendario.mostrarDiasDisponibles();
+
+        // Solicitar día para el turno
+        System.out.print("Ingrese el día para agendar el turno: ");
+        int dia = scanner.nextInt();
+
+        // Crear el turno
+        Turno turno = new Turno(paciente, dia);
+        turno.agendarTurno();
+
+        // Validar si el turno fue asignado
+        if (turno.esTurnoValido()) {
+            System.out.println("Turno confirmado.");
+        } else {
+            System.out.println("El turno no pudo ser asignado.");
+        }
+
+        scanner.close();
+    }
+}
