@@ -1,0 +1,42 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.mycompany.agendamientocitas;
+
+/**
+ *
+ * @author Daniel
+ */
+public class Calendario {
+
+    public static boolean esPrimo(int numero) {
+    if (numero < 2) {
+        return false;
+    }
+    for (int i = 2; i <= numero / 2; i++) {  // Revisamos hasta la mitad del número
+        if (numero % i == 0) {
+            return false;  // Si encontramos un divisor, no es primo
+        }
+    }
+    return true;  // Si no se encontró divisor, el número es primo
+}
+
+    public static boolean esPar(int numero) {
+        return numero % 2 == 0;
+    }
+
+    public static boolean esDiaValido(int dia) {
+        return esPrimo(dia) || esPar(dia);
+    }
+
+    public static void mostrarDiasDisponibles() {
+        System.out.println("Días disponibles para agendar:");
+        for (int i = 1; i <= 31; i++) {
+            if (esDiaValido(i)) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+}
